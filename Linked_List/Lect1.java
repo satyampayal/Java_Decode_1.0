@@ -16,6 +16,7 @@ public class Lect1 {
      System.out.println(a);
      System.out.println(a.val);
      Node b=new Node(10) ;
+     // linking a to b
      a.next=b;
      System.out.println(b.next);
      System.out.println(b);
