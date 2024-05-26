@@ -146,6 +146,22 @@ class SinglyLL {
         temp=null;
         size--;
     }
+    // Delelt from last 
+    void deleltFromLast(int indx){
+        if(indx>size){
+            return;
+        }
+        if(indx==size){
+            deletFirst();
+            return;
+        }
+        if(indx==1){
+            deletLast();
+            return;
+
+        }
+        delet(size-indx+1);
+    }
      
     void display() {
         if (head == null) {
@@ -192,6 +208,9 @@ public class ImplentationLL {
         // list.display();
         list.display();
         list.delet(3);
+        list.display();
+        // delelt node from last
+        list.deleltFromLast(1);
         list.display();
 
 
