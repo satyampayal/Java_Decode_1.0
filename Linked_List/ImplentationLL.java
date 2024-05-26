@@ -124,6 +124,29 @@ class SinglyLL {
 
     }
 
+    void delet(int indx){
+        if(indx>size){
+            return;
+        }
+        if(indx==1){
+            deletFirst();
+        }
+        if(indx==size){
+            deletLast();
+        }
+        Node prevNode=head;
+        Node temp=prevNode;
+        while(indx!=1){
+            prevNode=temp;
+            temp=temp.next;
+            indx--;
+
+        }
+        prevNode.next=temp.next;
+        temp=null;
+        size--;
+    }
+     
     void display() {
         if (head == null) {
             System.out.println("Linked List is Empty");
@@ -161,24 +184,16 @@ public class ImplentationLL {
         list.display();
         // delet node from last
         System.out.println("Delete from last");
-        list.deletLast();
+      //  list.deletLast();
         list.display();
         // delet node from front
         System.out.println("Delete from First");
-        list.deletFirst();
+        //list.deletFirst();
         // list.display();
-
-        // list.deletFirst();
-        // list.display();
-
-        // list.deletFirst();
-        // list.display();
-
-        // list.deletFirst();
-        // list.display();
-
-        // list.deletFirst();
         list.display();
+        list.delet(3);
+        list.display();
+
 
     }
 
