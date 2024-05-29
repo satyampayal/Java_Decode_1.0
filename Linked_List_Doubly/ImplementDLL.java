@@ -9,6 +9,7 @@ class DLL{
     if(head==null){
         head=a;
         tail=a;
+        size++;
         return;
     }
     head.prev=a;
@@ -21,11 +22,39 @@ class DLL{
     if(head==null){
         head=a;
         tail=a;
+        size++;
         return;
     }
     tail.next=a;
     a.prev=tail;
     tail=a;
+    size++;
+   }
+   // add at any indx
+   public void add(int val,int indx){
+    if(indx>size|| indx<0 ){
+        System.out.println("Not possible  bound problem");
+        return ;
+    }
+    if(indx==1){
+        addFront(val);
+        return;
+    }
+    if(indx==size){
+        addLast(val);
+        return;
+    }
+    Node a=new Node(val);
+
+    Node temp=head;
+    while(indx!=1){
+        temp=temp.next;
+        indx--;
+    }
+    a.prev=temp.prev;
+    temp.prev.next=a;
+    temp.prev=a;
+    a.next=temp;
     size++;
    }
    public void getLast(){
@@ -43,6 +72,10 @@ class DLL{
     System.out.println("First Value of list is: "+head.val);
    }
 
+   // size of List
+   public void getSize(){
+    System.out.println("size of List is: "+size);
+   }
    // display element forward
    public  void printFordward(){
     if(size==0){
@@ -71,6 +104,11 @@ public class ImplementDLL {
         list.addLast(50);
         list.printFordward();
         list.getLast();
+        // size of list
+        list.getSize();
+        // add at any indx
+        list.add(60,4);
+        list.printFordward();
 
 
     }
