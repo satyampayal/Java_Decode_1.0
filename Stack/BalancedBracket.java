@@ -4,6 +4,9 @@ import java.util.Stack;
 
 public class BalancedBracket {
     public static  boolean isValid(String s){
+        if(s.length()==1){
+            return false;
+        }
         Stack<Character> st=new Stack<>();
         for(char c:s.toCharArray()){
             if(c=='('){
@@ -23,7 +26,7 @@ public class BalancedBracket {
         return true;
     }
     public static void main(String[] args) {
-        System.out.println(isValid("{([)}"));
+        System.out.println(isValid("{{"));
   
     }
 }
