@@ -10,7 +10,7 @@ public class RemoveAddjacentConcective {
                 st.push(c);
             }
             else if(st.peek()==c){
-                st.pop();
+                st.pop(); 
             }else{
                 st.push(c);
             }
