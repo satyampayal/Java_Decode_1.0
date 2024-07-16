@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 public class KthSmallest {
     public static void kthMinimum(int[] arr,int k){
    PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
-   for (int ele : pq) {
+   for (int ele : arr) {
     pq.add(ele);
     if(pq.size()>k) pq.remove();
     
@@ -15,7 +15,7 @@ public class KthSmallest {
     }
     public static void main(String[] args) {
         int[] arr={10,2,3,8,-4,-2,6};
-        int k=5;
+        int k=1;
         kthMinimum(arr,k);
         
     }
