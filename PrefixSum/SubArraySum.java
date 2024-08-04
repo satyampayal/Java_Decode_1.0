@@ -13,30 +13,16 @@ public class SubArraySum {
         HashMap<Integer, Integer> map = new HashMap<>();
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < k) {
-                if (map.containsKey(arr[i]))
-                    map.put(arr[i], map.get(arr[i]) + 1);
-                else {
-                    map.put(arr[i], 1);
-                }
-            } else {
-                if (arr[i] == k) {
-                    count++;
-                    if (map.containsKey(k))
-                        map.put(k, map.get(k) + 1);
-                    else
-                        map.put(arr[i], 1);
-
-                }
-                else{
-                    int rem = arr[i] - k;
-                    if (map.containsKey(rem)) {
-                        count += map.get(rem);
-                    }
-                    if(map.containsKey(arr[i])) map.put(arr[i], map.get(arr[i]+1));
-                    else map.put(arr[i], 1);
-                }
-            }
+          int ele=arr[i];
+          if(ele==k) count++;
+          int rem=ele-k;
+          if(map.containsKey(rem)) count+=map.get(rem);
+          if(map.containsKey(ele)){
+            int freq=map.get(ele);
+            map.put(ele,freq+1);
+          }
+          else map.put(ele, 1);
+            
         }
         return count;
 
